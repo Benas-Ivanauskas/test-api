@@ -1,3 +1,6 @@
+const dotenv = require("dotenv");
+dotenv.config();
+
 const jsonServer = require("json-server");
 const path = require("path");
 const express = require("express");
@@ -6,7 +9,6 @@ const router = jsonServer.router("db.json");
 const middlewares = jsonServer.defaults();
 const port = process.env.PORT || 3001;
 
-// Serve static files (images)
 server.use("/images", express.static(path.join(__dirname, "images")));
 
 server.use(middlewares);
